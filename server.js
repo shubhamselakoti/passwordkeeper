@@ -15,11 +15,13 @@ app.get('/', (req, res) => {
     res.render('index.html');
 });
 
+app.get('/checker', (req, res) => {
+    res.send({ status: 'failure', message: 'No password provided' });
+});
+    
 app.get('/checker/:password', (req, res) => {
-    const { password } = req.params.trim();
-    if(password === undefined || password.length === 0) {
-        return res.send({ status: 'failure', message: 'No password provided' });
-    }
+    const password = req.params.password;
+
     if (password === process.env.PASSWORD) {
         res.send({ status: 'success', message: 'Password is correct' });
     } else {
