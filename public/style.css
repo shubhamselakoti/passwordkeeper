@@ -11,12 +11,26 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1, h3{
+    font-weight: normal;
     color: white;
     text-align: center;
-    gap: 4%;
+    margin: 2% 0;
+
+    border: 1px ridge white;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2%;
+    display: block;
+    width: max-content;
+}
+a{
+    text-decoration: none;
+    color: green;
+    font-weight: bolder;
 }

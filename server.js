@@ -16,7 +16,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/checker/:password', (req, res) => {
-    const { password } = req.params;
+    const { password } = req.params.trim();
+    if(password === undefined || password.length === 0) {
+        return res.send({ status: 'failure', message: 'No password provided' });
+    }
     if (password === process.env.PASSWORD) {
         res.send({ status: 'success', message: 'Password is correct' });
     } else {
