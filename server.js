@@ -5,12 +5,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
+
+app.use(express.static("public"));
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('I love you Aditi')
+    res.render('index.html');
 });
 
 app.get('/checker/:password', (req, res) => {
